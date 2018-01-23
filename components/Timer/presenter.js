@@ -1,10 +1,10 @@
-
 import React, { Component } from "react";
 import { View, StyleSheet, Text, StatusBar } from "react-native";
 import Button from "../Button";
 
 class Timer extends Component {
   render() {
+    console.log(this.props);
     const { isPlaying, elapsedTime, timerDuration } = this.props;
     return (
       <View style={styles.container}>
