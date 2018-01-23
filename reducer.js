@@ -1,23 +1,16 @@
 // Reducer by Duck
-
 // Imports
 
-// Actions
 
+// Actions
 const START_TIMER = "START_TIMER";
-const PAUSE_TIMER = "PAUSE_TIMER";
-const RESUME_TIMER = "RESUME_TIMER";
-const STOP_TIMER = "STOP_TIMER";
+const RESTART_TIMER = "RESTART_TIMER";
 const ADD_SECOND = "ADD_SECOND";
 
 
 // Action Creators
 function startTimer() {
   return { type: START_TIMER };
-}
-
-function pauseTimer() {
-  return { type: PAUSE_TIMER };
 }
 
 function restartTimer() {
@@ -41,12 +34,8 @@ function reducer(state = initialState, action) {
   switch (action.type) {
     case START_TIMER:
       return applyStartTimer(state, action);
-    case PAUSE_TIMER:
-      return applyPauseTimer(state, action);
-    case RESUME_TIMER:
-      return applyResumeTimer(state, action);
-    case STOP_TIMER:
-      return applyStopTimer(state, action);
+    case RESTART_TIMER:
+      return applyRestartTimer(state, action);
     case ADD_SECOND:
       return applyAddSecond(state, action);
     default:
@@ -64,21 +53,7 @@ function applyStartTimer(state, action) {
   };
 }
 
-function applyPauseTimer(state, action) {
-  return {
-    ...state,
-    isPlaying: false
-  };
-}
-
-function applyResumeTimer(state, action) {
-  return {
-    ...state,
-    isPlaying: true
-  };
-}
-
-function applyStopTimer(state, action) {
+function applyRestartTimer(state, action) {
   return {
     ...state,
     isPlaying: false,
@@ -105,7 +80,6 @@ function applyAddSecond(state, action) {
 // Exports
 const actionCreators = {
   startTimer,
-  pauseTimer,
   restartTimer,
   addSecond
 };
